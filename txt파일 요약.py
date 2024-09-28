@@ -1,3 +1,9 @@
+#install unstructured
+#install sentence-transformers
+#install chromadb
+#install openai
+#install langchain-openai
+
 from langchain.document_loaders import TextLoader
 documents = TextLoader("AI.txt").load() #파일 위치 지정
 
