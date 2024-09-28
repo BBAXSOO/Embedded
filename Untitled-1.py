@@ -131,20 +131,18 @@ print("\n[뉴스 링크]")
 print(final_urls)
 print("\n[뉴스 내용]")
 print(news_contents, "\n")
-print(news_date)
+
 
 # 데이터프레임으로 전환한다
 news_df = pd.DataFrame({'date': news_dates, 'title': news_titles, 'link': final_urls, 'content': news_contents})
+
 
 # 중복 행 제거
 news_df = news_df.drop_duplicates(keep='first', ignore_index=True)
 print("중복 제거 후 행 개수: ", len(news_df))
 
-
-summarizer = pipeline("summarization")
-
-text = news_contents
-
-summary = summarizer(text, max_length =1024, min_length = 10, do_sample = False)
-
-print(summary[0]['summary_text'])
+# 내용을 파일 형태로 저장한다.
+with open('news_contents_file.txt', 'w', encoding='utf-8') as f:
+    for content in news_contents:
+        f.write(content + "\n")
+        
