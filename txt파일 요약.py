@@ -29,7 +29,7 @@ import os
 os.environ["OPENAI_API_KEY"] = "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"
 
 from langchain.chat_models import ChatOpenAI
-model_name = "gpt-4"
+model_name = "gpt-3.5-turbo"
 llm = ChatOpenAI(model_name=model_name, api_key=api_key)
 
 from langchain.chains.question_answering import load_qa_chain
